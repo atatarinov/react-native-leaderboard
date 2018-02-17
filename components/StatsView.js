@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   coin: {
-    width: 15,
-    height: 15
+    width: 14,
+    height: 14
   },
   coinRight: {
-    width: 15,
-    height: 15,
+    width: 14,
+    height: 14,
     paddingLeft: 10
   },
   styleListItemProps: {
@@ -128,12 +128,12 @@ const styles = StyleSheet.create({
   listItemPoints: {
     fontFamily: 'Rubik',
     fontSize: 16,
-    paddingLeft: 3
+    paddingLeft: 1
   },
   listItemPointsRight: {
     fontFamily: 'Rubik',
     fontSize: 16,
-    paddingLeft: 3
+    paddingLeft: 1
   },
   listItemComment: {
     fontFamily: 'Rubik',
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik',
     color: 'grey',
     fontSize: 13,
-    opacity: 0.7
+    opacity: 0.7,
+    paddingLeft: 3
   }
 });
