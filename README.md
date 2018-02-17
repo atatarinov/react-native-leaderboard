@@ -1,5 +1,7 @@
 ## Welcome to the Leaderboard App built with React Native and Expo
 
+![Alt text](./assets/photos/UIscreenshot.png?raw=true "Main")
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 # Required tools:
