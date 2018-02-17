@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Font } from 'expo';
-import { StyleSheet, View, Text, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Dimensions, Image } from 'react-native';
 
 
 export default class StatsView extends Component {
@@ -40,12 +40,14 @@ export default class StatsView extends Component {
                     </View>
 
                     <View style={styles.styleListItemProps}>
-                      <Text style={styles.listItemPoints}>{data.value}{this.props.styleFlame(data.rank)}</Text>
+                      <Text style={styles.listItemPoints}>
+                        <Image style={styles.coin} source={require('../assets/img/DUcoin.png')} />{data.value}{this.props.styleFlame(data.rank)}
+                      </Text>
                       <Text style={styles.listItemComment}>This week</Text>
                     </View>
 
-                    <View style={styles.styleListItemProps}>
-                      <Text style={styles.listItemPointsRight}>{data.userXP}</Text>
+                    <View style={styles.styleListItemPropsRight}>
+                      <Text style={styles.listItemPointsRight}><Image style={styles.coinRight} source={require('../assets/img/DUcoin.png')} />{data.userXP}</Text>
                       <Text style={styles.listItemCommentRight}>Total</Text>
                     </View>
 
@@ -100,24 +102,38 @@ const styles = StyleSheet.create({
     flex: 0.6,
     justifyContent: 'center'
   },
+  coin: {
+    width: 15,
+    height: 15
+  },
+  coinRight: {
+    width: 15,
+    height: 15,
+    paddingLeft: 10
+  },
   styleListItemProps: {
+    flex: 0.3,
+    justifyContent: 'center',
+  },
+  styleListItemPropsRight: {
     flex: 0.25,
     justifyContent: 'center'
   },
   nameText: {
     fontFamily: 'Rubik',
-    fontSize: 22,
+    fontSize: 20,
     textAlign: 'center',
     paddingBottom: 18,
   },
   listItemPoints: {
     fontFamily: 'Rubik',
-    fontSize: 18
+    fontSize: 16,
+    paddingLeft: 3
   },
   listItemPointsRight: {
     fontFamily: 'Rubik',
-    fontSize: 18,
-    paddingLeft: 10
+    fontSize: 16,
+    paddingLeft: 3
   },
   listItemComment: {
     fontFamily: 'Rubik',
@@ -129,7 +145,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik',
     color: 'grey',
     fontSize: 13,
-    opacity: 0.7,
-    paddingLeft: 10
+    opacity: 0.7
   }
 });
