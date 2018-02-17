@@ -8,8 +8,8 @@ export default class StatsView extends Component {
     fontLoaded: false
   }
 
-  componentDidMount() {
-    Font.loadAsync({
+  async componentDidMount() {
+    await Font.loadAsync({
       'Rubik': require('../assets/fonts/Rubik/Rubik-Regular.ttf'),
       'RubikBold': require('../assets/fonts/Rubik/Rubik-Bold.ttf'),
     });
@@ -21,7 +21,7 @@ export default class StatsView extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.listContainer}>
+      <ScrollView contentContainerStyle={styles.listContainer} bounces={true}>
         {
           this.state.fontLoaded ? (
             this.props.leaderboardData.map(data => {
@@ -64,7 +64,6 @@ const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   listContainer: {
-    flex: 0.85,
     alignItems: 'center',
     backgroundColor: '#FBFBFB',
   },

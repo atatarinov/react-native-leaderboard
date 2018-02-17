@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import axios from 'axios';
 import StatsView from './StatsView';
 
@@ -82,8 +82,8 @@ export default class Landing extends Component {
 
   render() {
     let { leaderboardData } = this.state;
-    return (
 
+    return (
       <View style={styles.container} >
 
         <View style={styles.header}>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
-      height: 3
+      height: 0
     },
     shadowOpacity: 1,
     borderBottomColor: '#999999',
