@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import { Font } from 'expo';
 import { StyleSheet, View, Text, ScrollView, Dimensions, Image } from 'react-native';
 
-
 export default class StatsView extends Component {
   state = {
     fontLoaded: false
-  }
+  };
 
   async componentDidMount() {
     await Font.loadAsync({
-      'Rubik': require('../assets/fonts/Rubik/Rubik-Regular.ttf'),
-      'RubikBold': require('../assets/fonts/Rubik/Rubik-Bold.ttf'),
+      Rubik: require('../assets/fonts/Rubik/Rubik-Regular.ttf'),
+      RubikBold: require('../assets/fonts/Rubik/Rubik-Bold.ttf')
     });
-
     this.setState({
       fontLoaded: true
     });
@@ -22,41 +20,44 @@ export default class StatsView extends Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.listContainer} bounces={true}>
-        {
-          this.state.fontLoaded ? (
-            this.props.leaderboardData.map(data => {
+        {this.state.fontLoaded
+          ? this.props.leaderboardData.map(data => {
               return (
                 <View key={data.rank} style={styles.listItem}>
-
                   <View style={this.props.styleRank(data.rank)}>
-                    <Text style={styles.styleRankNumber}>{this.props.giveMedalToRank(data.rank)}{data.rank}</Text>
+                    <Text style={styles.styleRankNumber}>
+                      {this.props.giveMedalToRank(data.rank)}
+                      {data.rank}
+                    </Text>
                   </View>
 
                   <View style={styles.playersStats}>
                     <View style={styles.playersName}>
                       <Text style={styles.styleRank}>{this.props.givePrize(data.rank)}</Text>
-                      <Text style={styles.nameText}>{data.username}
-                      </Text>
+                      <Text style={styles.nameText}>{data.username}</Text>
                     </View>
 
                     <View style={styles.styleListItemProps}>
                       <Text style={styles.listItemPoints}>
-                        <Image style={styles.coin} source={require('../assets/img/DUcoin.png')} />{data.value}{this.props.styleFlame(data.rank)}
+                        <Image style={styles.coin} source={require('../assets/img/DUcoin.png')} />
+                        {data.value}
+                        {this.props.styleFlame(data.rank)}
                       </Text>
                       <Text style={styles.listItemComment}>This week</Text>
                     </View>
 
                     <View style={styles.styleListItemPropsRight}>
-                      <Text style={styles.listItemPointsRight}><Image style={styles.coinRight} source={require('../assets/img/DUcoin.png')} />{data.userXP}</Text>
+                      <Text style={styles.listItemPointsRight}>
+                        <Image style={styles.coinRight} source={require('../assets/img/DUcoin.png')} />
+                        {data.userXP}
+                      </Text>
                       <Text style={styles.listItemCommentRight}>Total</Text>
                     </View>
-
                   </View>
                 </View>
               );
             })
-          ) : null
-        }
+          : null}
       </ScrollView>
     );
   }
@@ -67,7 +68,7 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   listContainer: {
     alignItems: 'center',
-    backgroundColor: '#FBFBFB',
+    backgroundColor: '#FBFBFB'
   },
   listItem: {
     flexDirection: 'row',
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 3
     },
-    shadowOpacity: 1,
+    shadowOpacity: 1
   },
   playersStats: {
     flex: 0.92,
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   },
   styleListItemProps: {
     flex: 0.3,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   styleListItemPropsRight: {
     flex: 0.25,
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik',
     fontSize: 20,
     textAlign: 'center',
-    paddingBottom: 18,
+    paddingBottom: 18
   },
   listItemPoints: {
     fontFamily: 'Rubik',
